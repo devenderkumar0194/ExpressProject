@@ -12,24 +12,10 @@ const loginSchema = Joi.object({
     password: Joi.string().required(), 
 });
 
-// const schema = Joi.object({
-//     name: Joi.string().min(3).max(30).required(),
-//     age: Joi.number().integer().min(1).max(120).required(),
-//     email: Joi.string().email().required()
-// });
-
-
-// const addProduct = Joi.object({
-//     title: Joi.string().min(3).max(100).required(),
-//     price: Joi.number().integer().min(1).required(),
-//     description: Joi.string().required(),
-// });
-
 
 module.exports = {
     registerSchema,
     loginSchema
-    // addProduct
 
 }
 

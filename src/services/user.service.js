@@ -42,7 +42,6 @@ const profile = async (data) => {
 };
 
 
-
 module.exports = {
   register,
   login,

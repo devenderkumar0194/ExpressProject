@@ -13,6 +13,4 @@ router.post('/login', validate(loginSchema), userController.login);
 router.get('/profile', authenticateJWT, userController.profile);
 
 
-
-
 module.exports = router;
