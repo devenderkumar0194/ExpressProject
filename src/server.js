@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const userRoutes = require('./routes/user.routes');
+const productRoutes = require('./routes/product.routes');
 const { errorHandler} = require('./middlewares/error.middleware');
 const passport = require('passport');
 const passportConfig = require('./config/passport');
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/users', userRoutes);
-
+app.use('/products', productRoutes);
 
 
 app.use(errorHandler);
