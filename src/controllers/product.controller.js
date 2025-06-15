@@ -2,7 +2,8 @@ const productService = require('../services/product.service');
 
 const add = async (req, res, next) => {
   try {
-    const product = await productService.add(req.body);
+    const authUser = req.user;
+    const product = await productService.add(authUser, req.body);
     res.status(200).json(product);
   } catch (err) {
     next(err);
@@ -12,7 +13,8 @@ const add = async (req, res, next) => {
 
 const list = async (req, res, next) => {
   try {
-    const products = await productService.list();
+    const authUser = req.user;
+    const products = await productService.list(authUser);
     res.status(200).json(products);
   } catch (err) {
     next(err);

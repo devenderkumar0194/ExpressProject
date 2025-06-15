@@ -9,7 +9,11 @@ const ProductSchema = new mongoose.Schema({
         min: 3,
         max: 100
     },
-
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', 
+        required: true
+    },
     price: {
         type: Number,
         required: true,
