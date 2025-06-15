@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const userRoutes = require('./routes/user.routes');
 const { errorHandler} = require('./middlewares/error.middleware');
+
 // Middleware to parse JSON
 app.use(express.json());
 require('./config/db');
@@ -12,7 +13,6 @@ require('./config/db');
 app.get('/', (req, res) => {
   res.send('Hello, Express!');
 });
-
 
 
 app.use('/users', userRoutes);

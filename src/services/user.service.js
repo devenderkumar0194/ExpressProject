@@ -1,22 +1,16 @@
 const User = require('../models/user.model');
+const CustomError = require('../utils/customError');
 
-exports.getAllUsers = async () => {
-  return await User.find();
+
+const register = async (data) => {
+    const user = await User.findOne({email : data.email});
+    if(user){
+       throw new CustomError('User with this email already exists', 409);
+    }    
+    const newUser = new User(data);
+    return await newUser.save();
 };
 
-exports.getUserById = async (id) => {
-  return await User.findById(id);
-};
-
-exports.createUser = async (data) => {
-  const user = new User(data);
-  return await user.save();
-};
-
-exports.updateUser = async (id, data) => {
-  return await User.findByIdAndUpdate(id, data, { new: true });
-};
-
-exports.deleteUser = async (id) => {
-  return await User.findByIdAndDelete(id);
-};
+module.exports = {
+  register
+}
