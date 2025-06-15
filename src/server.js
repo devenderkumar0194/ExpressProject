@@ -17,8 +17,9 @@ app.get('/', (req, res) => {
 
 app.use('/users', userRoutes);
 
-app.use(errorHandler);
 
+
+app.use(errorHandler);
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
