@@ -15,11 +15,9 @@ const add = async (user,data) => {
 };
 
 const list = async (user) => {
-    const products = await Product.find({ user : user._id }).sort({ createdAt : -1 }).populate('user');
+    const products = await Product.find().sort({ createdAt : -1 }).limit(12).populate('user');
     return products;
 };
-
-
 
 module.exports = {
   add,

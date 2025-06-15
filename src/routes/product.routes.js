@@ -6,9 +6,10 @@ const { addProductSchema } = require('../validations/product.validation');
 const authenticateJWT = require('../middlewares/auth.middleware');
 
 
+router.get('/', productController.list);
+
 router.use(authenticateJWT);
 router.post('/add', validate(addProductSchema), productController.add);
-router.get('/', productController.list);
 
 
 module.exports = router;

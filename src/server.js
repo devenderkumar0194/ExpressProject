@@ -8,6 +8,9 @@ const productRoutes = require('./routes/product.routes');
 const { errorHandler} = require('./middlewares/error.middleware');
 const passport = require('passport');
 const passportConfig = require('./config/passport');
+const cors = require('cors');
+app.use(cors());
+
 
 // Middleware to parse JSON
 app.use(express.json());
