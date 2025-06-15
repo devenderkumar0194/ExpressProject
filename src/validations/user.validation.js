@@ -7,6 +7,11 @@ const registerSchema = Joi.object({
     confirm_password: Joi.string().valid(Joi.ref('password')).required()    
 });
 
+const loginSchema = Joi.object({ 
+    email: Joi.string().required().email(), 
+    password: Joi.string().required(), 
+});
+
 // const schema = Joi.object({
 //     name: Joi.string().min(3).max(30).required(),
 //     age: Joi.number().integer().min(1).max(120).required(),
@@ -23,7 +28,7 @@ const registerSchema = Joi.object({
 
 module.exports = {
     registerSchema,
-
+    loginSchema
     // addProduct
 
 }
